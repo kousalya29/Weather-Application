@@ -1,0 +1,54 @@
+
+:root {
+  --primary-red: hsl(0, 100%, 74%);
+  --primary-green: hsl(154, 59%, 51%);
+  --primary-dark: hsl(240, 4%, 5%);
+  --neutral-grey: hsl(246, 25%, 77%);
+  --clr-grey-special: #eae6eb;
+  --radius: 0.25rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --clr-grey-1: hsl(209, 34%, 30%);
+  --primary-500: #3b82f6;
+  --grey-400: #829ab1;
+}
+
+*,
+::after,
+::before {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Roboto+Condensed:wght@400;700&display=swap');
+body {
+  margin: 0;
+  font-family: 'Roboto Condensed',
+    Sans-Serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  height: auto;
+  background: url('./assets/images/bg.png') var(--primary-red);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
+  margin-top:1rem;
+  width: 4rem;
+  height: 4rem;
+  border: 5px solid var(--grey-400);
+  border-radius: 50%;
+  border-top-color: var(--primary-500);
+  animation: spinner 2s linear infinite;
+}
