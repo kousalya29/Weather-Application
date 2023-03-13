@@ -1,21 +1,13 @@
 import React from 'react';
 import {render, screen, fireEvent,act} from '@testing-library/react';
 import SingleForecast from '../SingleForecast';
+import {mockWeatherData} from '../../utils/testData'
 
 describe('Single Forecast', ()=>{
-
-    const SingleForecastMock = {
-        dt_txt: 1666048008,
-        wind: {},
-        main: {humidity:'94',feels_like:'6', pressure:'1006',temp_min:'7',temp_max:"8"},
-        weather: [
-        { icon: "icon", main:'clouds' }
-        ]
-    }
-   
+  
     
     it('Toggles + / - on clicking button', async()=>{
-        const { getByRole } =render(<SingleForecast forecast={SingleForecastMock} />);
+        const { getByRole } =render(<SingleForecast forecast={mockWeatherData} />);
         const toggleBtn =  getByRole('button');
         act(() => {
             fireEvent.click(toggleBtn);
@@ -25,7 +17,7 @@ describe('Single Forecast', ()=>{
     })
 
     it('show more weather details', () => { 
-        render(<SingleForecast forecast={SingleForecastMock} />);
+        render(<SingleForecast forecast={mockWeatherData} />);
         const button = screen.getByRole('button');
         fireEvent.click(button);
         expect(screen.getByTestId('daily-description')).toBeInTheDocument();
